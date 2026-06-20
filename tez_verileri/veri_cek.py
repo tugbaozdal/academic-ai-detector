@@ -1,11 +1,22 @@
-import pandas as pd
+import os
+from dotenv import load_dotenv
 from datasets import load_dataset
+
+# 1. .env dosyasındaki gizli değişkenleri (şifreleri) koda dahil et
+load_dotenv()
+
+# 2. Şifreyi güvenli bir şekilde os kütüphanesiyle çek
+gizli_token = os.getenv("HF_TOKEN")
 
 print("1. Hugging Face'ten 'Turkish Academic Theses' veri seti indiriliyor...")
 print("(Bu işlem internet hızınıza bağlı olarak 1-2 dakika sürebilir, lütfen bekleyin...)")
 
-# Veri setini yükle (Parquet formatında olduğu için oldukça hızlı inecektir)
-ds = load_dataset("umutertugrul/turkish-academic-theses-dataset", split="train",token="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")
+if not gizli_token:
+    print("⚠️ DİKKAT: .env dosyasında HF_TOKEN bulunamadı!")
+
+# 3. Veri setini yükle (Şifreyi değişkenden alarak)
+print("Veri seti Hugging Face'ten güvenli bir şekilde indiriliyor...")
+ds = load_dataset("umutertugrul/turkish-academic-theses-dataset", split="train", token=gizli_token)
 df = ds.to_pandas()
 
 print(f"-> Başlangıçta indirilen toplam tez sayısı: {len(df)}")
