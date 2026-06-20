@@ -1,0 +1,30 @@
+==================================================
+🏆 NİHAİ TEST SETİ PERFORMANS RAPORU
+==================================================
+Model Konumu: ./models/berturk_final
+Test Edilen Toplam Metin: 384 (İnsan: 192 | AI: 192)
+
+🧩 KARMAŞIKLIK MATRİSİ (CONFUSION MATRIX):
+[[190   2]
+ [  0 192]]
+
+İnsan (0) -> Doğru Bilinen: 190 | Yanlışlıkla AI Denen: 2
+AI (1)    -> Yanlışlıkla İnsan Denen: 0 | Doğru Bilinen: 192
+
+🎯 ÖZET METRİKLER:
+Genel Doğruluk (Accuracy): %99.4792
+Kesinlik (Precision):      %98.9691
+Duyarlılık (Recall):       %100.0000
+F1-Skor (F1-Score):        %99.4819
+
+📊 DETAYLI SINIFLANDIRMA RAPORU:
+                precision    recall  f1-score   support
+
+     İnsan (0)     1.0000    0.9896    0.9948       192
+Yapay Zeka (1)     0.9897    1.0000    0.9948       192
+
+      accuracy                         0.9948       384
+     macro avg     0.9948    0.9948    0.9948       384
+  weighted avg     0.9948    0.9948    0.9948       384
+
+==================================================
